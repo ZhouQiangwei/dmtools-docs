@@ -1,10 +1,10 @@
-Calculate DNA methylation level
-===============================
+Bam2bm
+======
 
 .. contents:: 
     :local:
 
-Calmeth
+bam2bm
 -------
 
 Calculate DNA methylation level from alignment files, you can obtained single-base cytosine DNA
