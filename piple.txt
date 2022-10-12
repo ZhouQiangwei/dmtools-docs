@@ -1,0 +1,2 @@
+make html
+git add -A && git commit -m "basicplot" && git push
