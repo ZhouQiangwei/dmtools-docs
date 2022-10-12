@@ -6,9 +6,9 @@
 The Basic DNA Methylation (BM) format and BMtools
 =================================================
 
-.. image:: media/BatMeth2-pipeline.jpg
-   :height: 300 px
-   :width: 600 px
+.. image:: media/BMtools.jpg
+   :height: 450 px
+   :width: 620 px
    :alt: coverage
    :align: center
 
@@ -22,7 +22,7 @@ The Basic DNA methylation (BM) format is a compressed binary indexed DNA methyla
 The functions you can use BMtools to do:
 
 * :doc:`function/BMtools`: tools for DNA methylation in bm format, and prepare BM simalar bigwig file for browser.
-* :doc:`function/Calmeth`: Calulate DNA methylation level (ML) across whole genome output bm format.
+* :doc:`function/bam2bm`: Calulate DNA methylation level (ML) across whole genome output bm format.
 * :doc:`function/DiffMeth`: Perform differential analyses with auto defined regions or predefined regions. 
 * :doc:`function/PlotMeth`: Plot DNA ML profile, heatmap or boxplot across genes/TEs/etc. 
 * :doc:`function/pybmtools`: A python wrapper for BMtools. 
@@ -34,7 +34,7 @@ Contents
    :maxdepth: 2
 
    function/BMtools
-   function/Calmeth
+   function/bam2bm
    function/PlotMeth
    function/DiffMeth
    function/Requirements

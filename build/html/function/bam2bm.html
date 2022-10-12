@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>DiffMeth &#8212; BMtools 0.1 documentation</title>
+    <title>Bam2bm &#8212; BMtools 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -19,8 +19,8 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Requirements" href="Requirements.html" />
-    <link rel="prev" title="PlotMeth" href="PlotMeth.html" /> 
+    <link rel="next" title="PlotMeth" href="PlotMeth.html" />
+    <link rel="prev" title="BMtools" href="BMtools.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -124,9 +124,9 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BMtools.html">BMtools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bam2bm.html">Bam2bm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bam2bm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PlotMeth.html">PlotMeth</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DiffMeth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DiffMeth.html">DiffMeth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pybmtools.html">pybmtools</a></li>
 </ul>
@@ -140,111 +140,94 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="diffmeth">
-<h1>DiffMeth<a class="headerlink" href="#diffmeth" title="Permalink to this heading">¶</a></h1>
+  <section id="bam2bm">
+<h1>Bam2bm<a class="headerlink" href="#bam2bm" title="Permalink to this heading">¶</a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#dmc-or-dmr-dmg" id="id1">DMC or DMR/DMG</a></p></li>
-<li><p><a class="reference internal" href="#usage" id="id2">Usage</a></p></li>
-<li><p><a class="reference internal" href="#output-file" id="id3">Output file</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id2">bam2bm</a></p></li>
+<li><p><a class="reference internal" href="#paramaters" id="id3">Paramaters</a></p></li>
+<li><p><a class="reference internal" href="#output-files" id="id4">Output files</a></p></li>
+<li><p><a class="reference internal" href="#output-file-format" id="id5">Output file format</a></p></li>
 </ul>
 </nav>
-<section id="dmc-or-dmr-dmg">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">DMC or DMR/DMG</a><a class="headerlink" href="#dmc-or-dmr-dmg" title="Permalink to this heading">¶</a></h2>
-<a class="reference internal image-reference" href="../_images/diffmeth.png"><img alt="alternate text" class="align-center" src="../_images/diffmeth.png" style="width: 640.0px; height: 464.0px;" /></a>
-<p>You can get dmc and dmr result with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ bmDMR -p mutant.output.dm <span class="se">\</span>
--1 mutant.methratio.bm -2 WT.methratio.bm <span class="se">\</span>
---methdiff <span class="m">0</span>.2 --minstep <span class="m">100</span> --mindmc <span class="m">5</span> --pval <span class="m">0</span>.01
+<section id="id1">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">bam2bm</a><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>Calculate DNA methylation level from alignment files, you can obtained single-base cytosine DNA
+methylation results, and the chromosome region DNA methylation levels files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>An example usage is:
+  with bam file:
+    bmtools bam2bm <span class="o">[</span>options<span class="o">]</span> -g genome.fa -b alignment.sort.bam -m output.methrario.bm
 </pre></div>
 </div>
-<p>obtained hyper、hypo dmc/dmr from dmc/dmr results</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ awk -v <span class="nv">OFS</span><span class="o">=</span><span class="s2">&quot;\t&quot;</span> <span class="s1">&#39;gsub(/\,/,&quot;\t&quot;,$NF)&#39;</span> mutant.output.dmr <span class="p">|</span> <span class="se">\</span>
-awk <span class="s1">&#39;$(NF-2)&gt;4 &amp;&amp; $NF&lt;=1&#39;</span>  &gt; mutant.output.hyper.dmr
-$ awk -v <span class="nv">OFS</span><span class="o">=</span><span class="s2">&quot;\t&quot;</span> <span class="s1">&#39;gsub(/\,/,&quot;\t&quot;,$NF)&#39;</span> mutant.output.dmr <span class="p">|</span> <span class="se">\</span>
-awk <span class="s1">&#39;!($(NF-2)&gt;4 &amp;&amp; $NF&lt;=1)&#39;</span>  &gt; mutant.output.hypo.dmr
-$ awk <span class="s1">&#39;$NF&gt;0&#39;</span> mutant.output.dmc <span class="p">|</span> awk <span class="s1">&#39;{print $1&quot;\t&quot;$2&quot;\t&quot;$2}&#39;</span> <span class="se">\</span>
-&gt; mutant.output.hyper.dmc
-$ awk <span class="s1">&#39;$NF&lt;0&#39;</span> mutant.output.dmc <span class="p">|</span> awk <span class="s1">&#39;{print $1&quot;\t&quot;$2&quot;\t&quot;$2}&#39;</span> <span class="se">\</span>
-&gt; mutant.output.hypo.dmc
-</pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The sam or bam file MUST sorted by <cite>samtools sort</cite>.</p>
 </div>
 </section>
-<section id="usage">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Usage</a><a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<section id="paramaters">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Paramaters</a><a class="headerlink" href="#paramaters" title="Permalink to this heading">¶</a></h2>
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head" colspan="2"><p><strong>[ Main paramaters ]</strong></p></th>
+<tr class="row-odd"><th class="head" colspan="3"><p><strong>[ Main paramaters ]</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>-p</p></td>
-<td><p>output file prefix</p></td>
+<tr class="row-even"><td colspan="2"><p>-m/--methratio</p></td>
+<td><p>[MethFileNamePrefix]  Predix of methratio output file (bm)</p></td>
 </tr>
-<tr class="row-odd"><td><p>-1</p></td>
-<td><p>sample1 methy bm files, sperate by comma.</p></td>
+<tr class="row-odd"><td colspan="2"><p>--genome/-g</p></td>
+<td><p>Name of the genome mapped against, MUST build index first <span class="xref std std-doc">bdindex</span></p></td>
 </tr>
-<tr class="row-even"><td><p>-2</p></td>
-<td><p>sample2 methy bm files, sperate by comma.</p></td>
+<tr class="row-even"><td colspan="2"><p>-i/--input</p></td>
+<td><p>Sam format file, sorted by samtools sort.</p></td>
 </tr>
-<tr class="row-odd"><td><p>--mindmc</p></td>
-<td><p>min dmc sites in dmr region. [default : 4]</p></td>
+<tr class="row-odd"><td colspan="2"><p>-b/--binput</p></td>
+<td><p>Bam format file, sorted by samtools sort.</p></td>
 </tr>
-<tr class="row-even"><td><p>--minstep</p></td>
-<td><p>min step in bp [default : 100]</p></td>
+<tr class="row-even"><td colspan="2"><p>-Q [int]</p></td>
+<td><p>caculate the methratio while read QulityScore &gt;= Q. default:20</p></td>
 </tr>
-<tr class="row-odd"><td><p>--maxdis</p></td>
-<td><p>max length of dmr [default : 0]</p></td>
+<tr class="row-odd"><td colspan="2"><p>-n [float]</p></td>
+<td><p>Number of mismatches, default 0.06 percentage of read length. [0-1]</p></td>
 </tr>
-<tr class="row-even"><td><p>--pvalue</p></td>
-<td><p>pvalue cutoff, default: 0.01</p></td>
+<tr class="row-even"><td colspan="2"><p>-c|--coverage</p></td>
+<td><p>&gt;= &lt;INT&gt; coverage. default:4</p></td>
 </tr>
-<tr class="row-odd"><td><p>--FDR</p></td>
-<td><p>adjust pvalue cutoff default : 1.0</p></td>
+<tr class="row-odd"><td colspan="2"><p>-nC</p></td>
+<td><p>&gt;= &lt;INT&gt; Cs per region. default:1</p></td>
 </tr>
-<tr class="row-even"><td><p>--methdiff</p></td>
-<td><p>the cutoff of methylation differention. default: 0.25 [CpG]</p></td>
+<tr class="row-even"><td colspan="2"><p>-r/--remove_dup</p></td>
+<td><p>REMOVE_DUP, default:true</p></td>
 </tr>
-<tr class="row-odd"><td><p>--element</p></td>
-<td><p>caculate predefinded region, input file with id.</p></td>
+<tr class="row-odd"><td colspan="2"><p>--zl</p></td>
+<td><p>The maximum number of zoom levels. [1-10], default: 2</p></td>
 </tr>
-<tr class="row-even"><td><p>--context</p></td>
-<td><p>Context for DM. CG/CHG/CHH/C, [C]</p></td>
+<tr class="row-even"><td colspan="2"><p>-as [0/1]</p></td>
+<td><p>If print calculated alignment reads in sam/bam file. default:0</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>-h|--help</p></td>
+<tr class="row-odd"><td colspan="2"><p>--mrtxt</p></td>
+<td><p>also print prefix.methratio.txt file</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>--help/-h</p></td>
+<td><p>Print help</p></td>
 </tr>
 </tbody>
 </table>
-<ol class="arabic simple">
-<li><p>Auto define DMR region according the dmc</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bmDMR -p dm.output -1 <span class="o">[</span>sample1.methC.bm,replicates ..<span class="o">]</span> <span class="se">\</span>
--2 <span class="o">[</span>sample2.methC.bm,replicates ..<span class="o">]</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li><p>Pre-definded regions (Gene/TE/UTR/CDS or other regions, not suggest)</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bmDMR -L -o_dm dm.output -1 <span class="o">[</span>sample1.methC.bm,replicates ..<span class="o">]</span> <span class="se">\</span>
--2 <span class="o">[</span>sample2.methC.bm,replicates ..<span class="o">]</span>
+</section>
+<section id="output-files">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Output files</a><a class="headerlink" href="#output-files" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>. prefix.methratio.bm <span class="o">(</span>binary file with index, view and processed with BMtools<span class="o">)</span>
 </pre></div>
 </div>
 </section>
-<section id="output-file">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Output file</a><a class="headerlink" href="#output-file" title="Permalink to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>DMC</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># format</span>
-Chrom position starnd context pvalue adjust_pvalue combine_pvalue corrected_pvalue <span class="se">\</span>
-cover_sample1 meth_sample1 cover_sample2 cover_sample2 meth.diff
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li><p>DMR</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># format</span>
-Chrom start end methlevelInSample1 methlevelInSample2 NdmcInRegion hypermdc,hypodmc
+<section id="output-file-format">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Output file format</a><a class="headerlink" href="#output-file-format" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>. methratio.bm <span class="o">(</span>binary file, view and processed with bmtools<span class="o">)</span>
+    Chromosome Loci <span class="o">(</span>end<span class="o">)</span> methlevel CT_count Strand Context
+    <span class="c1"># ex. bmtools view -i test.mr.bm -r Chr1:61-61</span>
+    <span class="c1"># ex. Chr1    61      0.286364  11  +       CHH</span>
+    <span class="c1"># CT_count     The number of coverage in this base pair.</span>
+    <span class="c1"># BigWig for genome browser, suggest with end col.</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -268,10 +251,11 @@ Chrom start end methlevelInSample1 methlevelInSample2 NdmcInRegion hypermdc,hypo
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#">DiffMeth</a><ul>
-<li><a class="reference internal" href="#dmc-or-dmr-dmg">DMC or DMR/DMG</a></li>
-<li><a class="reference internal" href="#usage">Usage</a></li>
-<li><a class="reference internal" href="#output-file">Output file</a></li>
+<li><a class="reference internal" href="#">Bam2bm</a><ul>
+<li><a class="reference internal" href="#id1">bam2bm</a></li>
+<li><a class="reference internal" href="#paramaters">Paramaters</a></li>
+<li><a class="reference internal" href="#output-files">Output files</a></li>
+<li><a class="reference internal" href="#output-file-format">Output file format</a></li>
 </ul>
 </li>
 </ul>
@@ -286,14 +270,14 @@ Chrom start end methlevelInSample1 methlevelInSample2 NdmcInRegion hypermdc,hypo
         <div class="button_nav">
             <div class="left">
                 
-                <a href="PlotMeth.html">
-                    <span class="icon"><</span><span>PlotMeth</span></a>
+                <a href="BMtools.html">
+                    <span class="icon"><</span><span>BMtools</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="Requirements.html"><span>Requirements</span><span class="icon">></span></a>
+                    <a href="PlotMeth.html"><span>PlotMeth</span><span class="icon">></span></a>
                 
             </div>
         </div>

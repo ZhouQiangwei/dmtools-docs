@@ -6,9 +6,9 @@
 The Basic DNA Methylation (BM) format and BMtools
 =================================================
 
-.. image:: media/BatMeth2-pipeline.jpg
-   :height: 300 px
-   :width: 600 px
+.. image:: media/BMtools.jpg
+   :height: 450 px
+   :width: 620 px
    :alt: coverage
    :align: center
 
