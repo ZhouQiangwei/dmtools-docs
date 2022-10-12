@@ -18,12 +18,16 @@
 # -- Project information -----------------------------------------------------
 
 project = 'BMtools'
+# If specified, this will be used in the nav bar instead.
+html_short_title = "BMtools"
 copyright = '2022, momocoding'
 author = 'momocoding'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'
 
+# Or it can be a URL:
+#html_logo = 'https://awesome.com/static/logo.png'
 
 # -- General configuration ---------------------------------------------------
 
@@ -55,6 +59,13 @@ html_theme = 'piccolo_theme'
 #from better import better_theme_path
 #html_theme = 'better'
 #html_theme_path = [better_theme_path]
+
+html_theme_options = {
+    "banner_text": 'Welcome to BMtools!',
+    "banner_hiding": "permanent",
+    "source_url": 'https://github.com/ZhouQiangwei/bmtools',
+    "source_icon": "github"
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
