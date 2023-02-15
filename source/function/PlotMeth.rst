@@ -1,7 +1,7 @@
 PlotMeth
 ========
 
-The Basic DNA Methylation (BM) format and BMtools
+The Basic DNA Methylation (DM) format and dmtools
 
 .. contents:: 
     :local:
@@ -23,10 +23,10 @@ bt2basicplot
 
 .. code:: bash
 
-    $ bmtools stats -i sample1.methratio.bm -o prefix1 
+    $ dmtools stats -i sample1.methratio.dm -o prefix1 
 
     # user also can obtained coverage and levels of CG:
-    $ bmtools stats -i sample1.methratio.bm -o prefix1.cg --context 1
+    $ dmtools stats -i sample1.methratio.dm -o prefix1.cg --context 1
       
     $ python3 bt2basicplot.py -c prefix1.cover.txt prefix2.cover.txt -o tt.pdf
 
@@ -39,7 +39,7 @@ bt2basicplot
 
 .. code:: bash
 
-    $ bmtools bodystats -i prefix1.bm --gff gene.gff -o prefix1.bodym \
+    $ dmtools bodystats -i prefix1.dm --gff gene.gff -o prefix1.bodym \
         --printcoverage 1
 
     $ python3 bt2basicplot.py -f prefix1.bodym.cover.cg prefix2.bodym.cover.cg \
@@ -73,17 +73,17 @@ bt2profile
 ----------
 
 Plot DNA methlation profile across gene/ TE/ predefined bed region, such as peak or dmr region.
-The input DNA methylation level matrix is produced by :doc:`BMtools`.
+The input DNA methylation level matrix is produced by :doc:`dmtools`.
 
 
-The *.profile.tss.aver *.profile.acorss.aver and *.profile.center.aver are calulated by :doc:`BMtools`.
+The *.profile.tss.aver *.profile.acorss.aver and *.profile.center.aver are calulated by :doc:`dmtools`.
 
 .. code:: bash
 
-    $ bmtools profile -i sample1.methratio.bm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 1
     
-    $ bmtools profile -i sample1.methratio.bm --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 1
 
     $ bt2profile.py -f H3K4me3.bdgene.profile.tss.aver \
@@ -100,10 +100,10 @@ The *.profile.tss.aver *.profile.acorss.aver and *.profile.center.aver are calul
 
 .. code:: bash
 
-    $ bmtools profile -i sample1.methratio.bm --bed active.bed -o active.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed active.bed -o active.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 3
 
-    $ bmtools profile -i sample1.methratio.bm --bed random.bed -o random.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed random.bed -o random.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 3
 
     $ bt2profile.py -f active.profile.center.aver \
@@ -116,10 +116,10 @@ The *.profile.tss.aver *.profile.acorss.aver and *.profile.center.aver are calul
 
 .. code:: bash
 
-    $ bmtools profile -i sample1.methratio.bm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
     
-    $ bmtools profile -i sample1.methratio.bm --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
 
     $ bt2profile.py -f H3K27me3.bdgene.profile.avarage.across.aver \
@@ -140,7 +140,7 @@ bt2heatmap
 
 .. code:: bash
 
-    $ bmtools profile -i sample1.methratio.bm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
     
     $ python bt2heatmap.py -m H3K4me3.bdgene.profile.cg -l bg \
@@ -154,10 +154,10 @@ bt2heatmap
 
 .. code:: bash
 
-    $ bmtools profile -i sample1.methratio.bm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 1
     
-    $ bmtools profile -i sample1.methratio.bm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 2
 
     $ python bt2heatmap.py -m H3K4me3.bdgene.profile.tss.cg H3K4me3.bdgene.profile.tts.cg \
@@ -184,7 +184,7 @@ bt2heatmap
 
 .. code:: bash
 
-    $ bmtools bodystats --gtf H3K4me3.bdgene.gtf -i ./test.methratio.bm \
+    $ dmtools bodystats --gtf H3K4me3.bdgene.gtf -i ./test.methratio.dm \
       -o H3K4me3.bdgene --strand 3 --context 4 --printcoverage 1
 
     $ python bt2heatmap.py -f H3K4me3.bdgene.bodym.cover.cg H3K4me3.bdgene.bodym.cover.cg \
@@ -218,4 +218,4 @@ bt2heatmap
          
         Note: @HZAU.
 
-.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/BMtools>`__.
+.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/dmtools>`__.

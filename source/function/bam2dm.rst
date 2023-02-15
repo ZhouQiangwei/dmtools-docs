@@ -1,10 +1,10 @@
-Bam2bm
+BAM2DM
 ======
 
 .. contents:: 
     :local:
 
-bam2bm
+bam2dm
 -------
 
 Calculate DNA methylation level from alignment files, you can obtained single-base cytosine DNA
@@ -14,7 +14,7 @@ methylation results, and the chromosome region DNA methylation levels files.
 
     An example usage is:
       with bam file:
-        bmtools bam2bm [options] -g genome.fa -b alignment.sort.bam -m output.methrario.bm
+        dmtools bam2dm [options] -g genome.fa -b alignment.sort.bam -m output.methrario.dm
 
 .. important:: The sam or bam file MUST sorted by `samtools sort`.
 
@@ -25,7 +25,7 @@ Paramaters
 +---------------------+--------------------------------------------------------------------------+
 | **[ Main paramaters ]**                                                                        |
 +=====================+==========================================================================+
-| -m/--methratio      | [MethFileNamePrefix]  Predix of methratio output file (bm)               |
+| -m/--methratio      | [MethFileNamePrefix]  Predix of methratio output file (dm)               |
 +---------------------+--------------------------------------------------------------------------+
 | --genome/-g         | Name of the genome mapped against, MUST build index first :doc:`bdindex` |
 +---------------------+--------------------------------------------------------------------------+
@@ -58,19 +58,19 @@ Output files
 
 .. code:: bash
 
-    1. prefix.methratio.bm (binary file with index, view and processed with BMtools)
+    1. prefix.methratio.dm (binary file with index, view and processed with dmtools)
 
 Output file format
 ------------------
 
 .. code:: bash
 
-    1. methratio.bm (binary file, view and processed with bmtools)
+    1. methratio.dm (binary file, view and processed with dmtools)
         Chromosome Loci (end) methlevel CT_count Strand Context
-        # ex. bmtools view -i test.mr.bm -r Chr1:61-61
+        # ex. dmtools view -i test.mr.dm -r Chr1:61-61
         # ex. Chr1    61      0.286364  11  +       CHH
         # CT_count     The number of coverage in this base pair.
         # BigWig for genome browser, suggest with end col.
 
 
-.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/BMtools>`__.
+.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/dmtools>`__.

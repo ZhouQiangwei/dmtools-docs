@@ -1,17 +1,17 @@
-BMtools
+DMtools
 =======
 
 .. contents:: 
     :local:
 
-BMtools main modules
+dmtools main modules
 ^^^^^^^^^^^^^^^^^^^^
 
-You can view and process bm file with bmtools:
+You can view and process dm file with dmtools:
 
 .. code:: bash
 
-    $ bmtools view -i mutant.methratio.bm | head
+    $ dmtools view -i mutant.methratio.dm | head
     
 obtained text format methylation results
 
@@ -22,21 +22,21 @@ Main functions
 +---------------------+--------------------------------------------------------------------------+
 | **[ Main paramaters ]**                                                                        |
 +=====================+==========================================================================+
-|                     | bmtools <mode> [opnions]                                                 |
+|                     | dmtools <mode> [opnions]                                                 |
 +---------------------+--------------------------------------------------------------------------+
 |Usage:                                                                                          |
 +---------------------+--------------------------------------------------------------------------+
-| [mode]              | bam2bm mr2bm view overlap regionstats bodystats profile chromstats       |
+| [mode]              | bam2dm mr2dm view overlap regionstats bodystats profile chromstats       |
 +---------------------+--------------------------------------------------------------------------+
-| bam2bm              | calculate DNA methylation (BM format) with BAM file                      |
+| bam2dm              | calculate DNA methylation (DM format) with BAM file                      |
 +---------------------+--------------------------------------------------------------------------+
-| mr2bm               | convert txt meth file to bm format                                       |
+| mr2dm               | convert txt meth file to dm format                                       |
 +---------------------+--------------------------------------------------------------------------+
-| view                | bm format to txt meth                                                    |
+| view                | dm format to txt meth                                                    |
 +---------------------+--------------------------------------------------------------------------+
-| viewheader          | view header of bm file                                                   |
+| viewheader          | view header of dm file                                                   |
 +---------------------+--------------------------------------------------------------------------+
-| overlap             | overlap cytosine site with more than two bm files                        |
+| overlap             | overlap cytosine site with more than two dm files                        |
 +---------------------+--------------------------------------------------------------------------+
 | regionstats         | calculate DNA methylation level of per region                            |
 +---------------------+--------------------------------------------------------------------------+
@@ -46,7 +46,7 @@ Main functions
 +---------------------+--------------------------------------------------------------------------+
 | chromstats          | calculate DNA methylation level across chromosome                        |
 +---------------------+--------------------------------------------------------------------------+
-| addzm               | add or change zoom levels for bm format, need for browser visulization   |
+| addzm               | add or change zoom levels for dm format, need for browser visulization   |
 +---------------------+--------------------------------------------------------------------------+
 | stats               | coverage and methylation level distribution of data                      |
 +---------------------+--------------------------------------------------------------------------+
@@ -54,37 +54,37 @@ Main functions
 +---------------------+--------------------------------------------------------------------------+
 
 
-bmtools bam2bm
+dmtools bam2dm
 ^^^^^^^^^^^^^^
 
-Calculate DNA methylation level from alignment BAM file to bm binary file:
+Calculate DNA methylation level from alignment BAM file to dm binary file:
 
 .. code:: bash
 
-    $ bmtools bam2bm -g genome.fa -b sample.sort.bam -m sample.methratio.bm
+    $ dmtools bam2dm -g genome.fa -b sample.sort.bam -m sample.methratio.dm
     
-you can see more details with 'bmtools bam2bm -h'
+you can see more details with 'dmtools bam2dm -h'
 
 
-bmtools mr2bm
+dmtools mr2dm
 ^^^^^^^^^^^^^
 
-Convert methratio txt file to bm binary file:
+Convert methratio txt file to dm binary file:
 
 .. code:: bash
 
-    $ bmtools mr2bm -g genome.fa.size -m mutant.methratio.txt --outbm mutant.methratio.bm
+    $ dmtools mr2dm -g genome.fa.size -m mutant.methratio.txt --outdm mutant.methratio.dm
     
-obtained bm format methylation results, you can see more details with 'bmtools mr2bm -h'
+obtained dm format methylation results, you can see more details with 'dmtools mr2dm -h'
 
-bmtools view
+dmtools view
 ^^^^^^^^^^^^
 
-You can view and process bm file with bmtools:
+You can view and process dm file with dmtools:
 
 .. code:: bash
 
-    $ bmtools view -i mutant.methratio.bm | head
+    $ dmtools view -i mutant.methratio.dm | head
       #Chr1	34	35	0.600000	5	-	CHG
       #Chr1	80	81	0.333333	6	-	CHH
       #Chr1	116	117	1.000000	4	-	CG
@@ -92,14 +92,14 @@ You can view and process bm file with bmtools:
     
 obtained text format methylation results
 
-bmtools viewheader
+dmtools viewheader
 ^^^^^^^^^^^^^^^^^^
 
-You can view the format of bm file with bmtools:
+You can view the format of dm file with dmtools:
 
 .. code:: bash
 
-    $ bmtools viewheader -i mutant.methratio.bm
+    $ dmtools viewheader -i mutant.methratio.dm
       #BM_END:    yes
       #BM_COVER:    yes
       #BM_CONTEXT:    yes
@@ -115,14 +115,14 @@ You can view the format of bm file with bmtools:
     
 obtained format of methylation results
 
-bmtools overlap
+dmtools overlap
 ^^^^^^^^^^^^^^^
 
-Overlap cytosine site with more than two bm files:
+Overlap cytosine site with more than two dm files:
 
 .. code:: bash
 
-    $ bmtools overlap -i sample1.methratio.bm -i2 sample2.methratio.bm
+    $ dmtools overlap -i sample1.methratio.dm -i2 sample2.methratio.dm
       ## chromsome pos context strand methy-sample1 coverage-sample1 methy-sample2 coverage-sample2
       #Chr1	34	CHG	-	0.600000	5	0.600000	5
       #Chr1	80	CHH	-	0.333333	6	0.333333	6
@@ -130,21 +130,21 @@ Overlap cytosine site with more than two bm files:
       #Chr1	117	CHG	-	0.250000	4	0.250000	4
       #Chr1	125	CHG	-	1.000000	4	1.000000	4
 
-Or just with --bmfiles:
+Or just with --dmfiles:
 
 .. code:: bash
 
-    $ bmtools overlap --bmfiles sample1.methratio.bm sample2.methratio.bm
+    $ dmtools overlap --dmfiles sample1.methratio.dm sample2.methratio.dm
 
 
-bmtools regionstats
+dmtools regionstats
 ^^^^^^^^^^^^^^^^^^^
 
 Calculate DNA methylation level of chromosome region, genes, or TEs:
 
 .. code:: bash
 
-    $ bmtools regionstats -i sample1.methratio.bm --gtf gene.gtf -o gene.meth.txt --printcoverage 1
+    $ dmtools regionstats -i sample1.methratio.dm --gtf gene.gtf -o gene.meth.txt --printcoverage 1
       ## chromosome pos strand meth coverage geneid
       #Chr1	4396348	-	6	567	AT1G12920
       #Chr1	4396348	-	12	1552	AT1G12920
@@ -154,7 +154,7 @@ or only print methylation level without coverage:
 
 .. code:: bash
 
-    $ bmtools regionstats -i sample1.methratio.bm --gtf gene.gtf -o gene.meth.txt --printcoverage 0
+    $ dmtools regionstats -i sample1.methratio.dm --gtf gene.gtf -o gene.meth.txt --printcoverage 0
       ## chromosome pos methy-level geneid
       #Chr1	1618602	-	0.009665	AT1G05490
       #Chr1	1618602	-	0.014290	AT1G05490
@@ -165,96 +165,96 @@ Or with bed file:
 
 .. code:: bash
 
-    $ bmtools regionstats -i sample1.methratio.bm --bed gene.bed -o gene.meth.txt
+    $ dmtools regionstats -i sample1.methratio.dm --bed gene.bed -o gene.meth.txt
 
 Or just calculate DNA methylation level of same regions:
 
 .. code:: bash
 
-    $ bmtools regionstats -i sample1.methratio.bm -r chr1:1-2900;chr2:1-200,+ \
+    $ dmtools regionstats -i sample1.methratio.dm -r chr1:1-2900;chr2:1-200,+ \
       -o gene.meth.txt
 
-Please see 'bmtools regionstats' for more details.
+Please see 'dmtools regionstats' for more details.
 
 
-bmtools bodystats
+dmtools bodystats
 ^^^^^^^^^^^^^^^^^
 
 Calculate DNA methylation level of gene body, upstream and downstream:
 
 .. code:: bash
 
-    $ bmtools bodystats -i sample1.methratio.bm --gtf gene.gtf -o gene.meth.txt
+    $ dmtools bodystats -i sample1.methratio.dm --gtf gene.gtf -o gene.meth.txt
 
 Or with bed file:
 
 .. code:: bash
 
-    $ bmtools bodystats -i sample1.methratio.bm --bed gene.bed -o gene.meth.txt
+    $ dmtools bodystats -i sample1.methratio.dm --bed gene.bed -o gene.meth.txt
 
 Or just calculate DNA methylation level of same regions:
 
 .. code:: bash
 
-    $ bmtools bodystats -i sample1.methratio.bm -r chr1:1-2900;chr2:1-200,+ \
+    $ dmtools bodystats -i sample1.methratio.dm -r chr1:1-2900;chr2:1-200,+ \
       -o gene.meth.txt
 
-Please see 'bmtools bodystats' for more details.
+Please see 'dmtools bodystats' for more details.
 
 
-bmtools profile
+dmtools profile
 ^^^^^^^^^^^^^^^
 
 Calculate DNA methylation profile matrix and avarage matrix across gene body, upstream and downstream:
 
 .. code:: bash
 
-    $ bmtools profile -i sample1.methratio.bm --gtf gene.gtf -o gene.profile \
+    $ dmtools profile -i sample1.methratio.dm --gtf gene.gtf -o gene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
 
 Or with bed file:
 
 .. code:: bash
 
-    $ bmtools profile -i sample1.methratio.bm --bed gene.bed -o gene.profile \
+    $ dmtools profile -i sample1.methratio.dm --bed gene.bed -o gene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
 
-Please see 'bmtools profile' for more details.
+Please see 'dmtools profile' for more details.
 
 
-bmtools chromstats
+dmtools chromstats
 ^^^^^^^^^^^^^^^^^^
 
 Calculate DNA methylation level across chromosome:
 
 .. code:: bash
 
-    $ bmtools chromstats -i sample1.methratio.bm -o chromosome.meth.txt \
+    $ dmtools chromstats -i sample1.methratio.dm -o chromosome.meth.txt \
       --chromstep 100000 --stepmove 50000 --fstrand 3 --context 4
 
-Please see 'bmtools chromstats' for more details.
+Please see 'dmtools chromstats' for more details.
 
-bmtools addzm
+dmtools addzm
 ^^^^^^^^^^^^^
 
-Add or change zoom levels in BM file, needed for IGV browser:
+Add or change zoom levels in DM file, needed for IGV browser:
 
 .. code:: bash
 
-    $ bmtools addzm -i sample.mr.bm -o sample.mr.zm5.bm --zl 5 
+    $ dmtools addzm -i sample.mr.dm -o sample.mr.zm5.dm --zl 5 
 
-Please see 'bmtools addzm' for more details.
+Please see 'dmtools addzm' for more details.
 
 
-bmtools stats
+dmtools stats
 ^^^^^^^^^^^^^
 
 Calculate DNA methylation data coverage and DNA methylation level category:
 
 .. code:: bash
 
-    $ bmtools stats -i sample1.methratio.bm -o chromosome.cover 
+    $ dmtools stats -i sample1.methratio.dm -o chromosome.cover 
 
-Please see 'bmtools stats' for more details.
+Please see 'dmtools stats' for more details.
 
-.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/BMtools>`__.
+.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/dmtools>`__.

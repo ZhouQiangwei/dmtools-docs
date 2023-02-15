@@ -18,8 +18,8 @@ You can get dmc and dmr result with:
 
 .. code:: bash
 
-    $ bmDMR -p mutant.output.dm \
-    -1 mutant.methratio.bm -2 WT.methratio.bm \
+    $ dmDMR -p mutant.output.dm \
+    -1 mutant.methratio.dm -2 WT.methratio.dm \
     --methdiff 0.2 --minstep 100 --mindmc 5 --pval 0.01
     
 obtained hyper、hypo dmc/dmr from dmc/dmr results
@@ -43,9 +43,9 @@ Usage
 +=====================+==========================================================================+
 | -p                  | output file prefix                                                       |
 +---------------------+--------------------------------------------------------------------------+
-| -1                  | sample1 methy bm files, sperate by comma.                                |
+| -1                  | sample1 methy dm files, sperate by comma.                                |
 +---------------------+--------------------------------------------------------------------------+
-| -2                  | sample2 methy bm files, sperate by comma.                                |
+| -2                  | sample2 methy dm files, sperate by comma.                                |
 +---------------------+--------------------------------------------------------------------------+
 | --mindmc            | min dmc sites in dmr region. [default : 4]                               |
 +---------------------+--------------------------------------------------------------------------+
@@ -71,15 +71,15 @@ Usage
 
 .. code:: bash
 
-    bmDMR -p dm.output -1 [sample1.methC.bm,replicates ..] \
-    -2 [sample2.methC.bm,replicates ..]
+    dmDMR -p dm.output -1 [sample1.methC.dm,replicates ..] \
+    -2 [sample2.methC.dm,replicates ..]
 
 2. Pre-definded regions (Gene/TE/UTR/CDS or other regions, not suggest) 
 
 .. code:: bash
 
-    bmDMR -L -o_dm dm.output -1 [sample1.methC.bm,replicates ..] \
-    -2 [sample2.methC.bm,replicates ..]
+    dmDMR -L -o_dm dm.output -1 [sample1.methC.dm,replicates ..] \
+    -2 [sample2.methC.dm,replicates ..]
 
 
 Output file
@@ -102,4 +102,4 @@ Output file
 
 
 
-.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/BMtools>`__.
+.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/dmtools>`__.

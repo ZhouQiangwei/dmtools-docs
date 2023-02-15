@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'BMtools'
+project = 'dmtools'
 # If specified, this will be used in the nav bar instead.
-html_short_title = "BMtools"
+html_short_title = "dmtools"
 copyright = '2022, momocoding'
 author = 'momocoding'
 
@@ -61,9 +61,9 @@ html_theme = 'piccolo_theme'
 #html_theme_path = [better_theme_path]
 
 html_theme_options = {
-    "banner_text": 'Welcome to BMtools!',
+    "banner_text": 'Welcome to dmtools!',
     "banner_hiding": "permanent",
-    "source_url": 'https://github.com/ZhouQiangwei/bmtools',
+    "source_url": 'https://github.com/ZhouQiangwei/dmtools',
     "source_icon": "github"
 }
 
