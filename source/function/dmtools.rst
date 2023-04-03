@@ -11,9 +11,9 @@ You can view and process dm file with dmtools:
 
 .. code:: bash
 
-    $ dmtools view -i mutant.methratio.dm | head
+    $ dmtools
     
-obtained text format methylation results
+obtained main modules in DMtools
 
 
 Main functions
@@ -26,13 +26,15 @@ Main functions
 +---------------------+--------------------------------------------------------------------------+
 |Usage:                                                                                          |
 +---------------------+--------------------------------------------------------------------------+
-| [mode]              | bam2dm mr2dm view overlap regionstats bodystats profile chromstats       |
+| [mode]              | bam2dm mr2dm view ebsrate overlap regionstats bodystats profile etc.     |
 +---------------------+--------------------------------------------------------------------------+
 | bam2dm              | calculate DNA methylation (DM format) with BAM file                      |
 +---------------------+--------------------------------------------------------------------------+
 | mr2dm               | convert txt meth file to dm format                                       |
 +---------------------+--------------------------------------------------------------------------+
 | view                | dm format to txt meth                                                    |
++---------------------+--------------------------------------------------------------------------+
+| ebsrate             | estimate bisulfite conversion rate                                       |
 +---------------------+--------------------------------------------------------------------------+
 | viewheader          | view header of dm file                                                   |
 +---------------------+--------------------------------------------------------------------------+
@@ -45,6 +47,8 @@ Main functions
 | profile             | calculate DNA methylation profile                                        |
 +---------------------+--------------------------------------------------------------------------+
 | chromstats          | calculate DNA methylation level across chromosome                        |
++---------------------+--------------------------------------------------------------------------+
+| chrmeth             | calculate DNA methylation level of chromosomes                           |
 +---------------------+--------------------------------------------------------------------------+
 | addzm               | add or change zoom levels for dm format, need for browser visulization   |
 +---------------------+--------------------------------------------------------------------------+
@@ -92,6 +96,51 @@ You can view and process dm file with dmtools:
     
 obtained text format methylation results
 
+dmtools ebsrate
+^^^^^^^^^^^^^^^
+
+You can estimate the bisulfite conversion rate with dmtools:
+
+.. code:: bash
+
+    $ dmtools ebsrate -i mutant.methratio.dm --bsmode chh
+      #dm bs-c-rate
+      ###bs rate calculated by chh
+      #ebsrate chh mode
+      #CHH	chrM	0.004437
+      #CHH	chr1	0.004765
+      #CHH	chr2	0.004755
+      #...
+      #...
+      #CHH	chrX	0.004585
+      ###CHH level in all chromosome
+      #CHH	+	0.004752
+      #CHH	-	0.004714
+      #CHH	.	0.004733
+      ###estimated bs rate by CHH level in all chromosome
+      #bsrate   0.004733
+    
+    $ dmtools ebsrate -i ~/practice/bmtools/dnmt/wgbs/GSM1329865.zm0.dm --bsmode chrM
+      #dm bs-c-rate
+      ###bs rate calculated by chrM
+      #ebsrate chr mode
+      #Chromosome List chrM 16569
+      #chrM	0	16569	0.005053	C	+
+      #chrM	0	16569	0.005588	CG	+
+      #chrM	0	16569	0.005007	CHG	+
+      #chrM	0	16569	0.005001	CHH	+
+      #chrM	0	16569	0.004336	C	-
+      #chrM	0	16569	0.006145	CG	-
+      #chrM	0	16569	0.003907	CHG	-
+      #chrM	0	16569	0.003873	CHH	-
+      ###estimated bs rate by chrM level
+      #bsrate   0.004694
+
+    $ dmtools ebsrate -i ~/practice/bmtools/dnmt/wgbs/GSM1329865.zm0.dm --bsmode lambda
+      ###estimated bs rate by lambda level
+      #bsrate   0.01092
+    
+
 dmtools viewheader
 ^^^^^^^^^^^^^^^^^^
 
@@ -124,18 +173,19 @@ Overlap cytosine site with more than two dm files:
 
     $ dmtools overlap -i sample1.methratio.dm -i2 sample2.methratio.dm
       ## chromsome pos context strand methy-sample1 coverage-sample1 methy-sample2 coverage-sample2
-      #Chr1	34	CHG	-	0.600000	5	0.600000	5
-      #Chr1	80	CHH	-	0.333333	6	0.333333	6
-      #Chr1	116	CG	-	1.000000	4	1.000000	4
-      #Chr1	117	CHG	-	0.250000	4	0.250000	4
-      #Chr1	125	CHG	-	1.000000	4	1.000000	4
+      #chr1	13079	CG	+	2	6	3	9
+      #chr1	13082	CHG	+	0	7	0	9
+      #chr1	13086	CHG	+	1	6	0	9
+      #chr1	13092	CHG	+	0	6	0	8
+      #chr1	13124	CHH	+	0	8	0	9
 
 Or just with --dmfiles:
 
 .. code:: bash
 
-    $ dmtools overlap --dmfiles sample1.methratio.dm sample2.methratio.dm
-
+    $ dmtools overlap --dmfiles sample1.methratio.dm,sample2.methratio.dm -r chr1:100-19000
+    #chr1	13058	CHH	+	0	5	0	7
+    #chr1	13059	CHG	+	0	5	0	7
 
 dmtools regionstats
 ^^^^^^^^^^^^^^^^^^^
@@ -253,7 +303,14 @@ Calculate DNA methylation data coverage and DNA methylation level category:
 
 .. code:: bash
 
-    $ dmtools stats -i sample1.methratio.dm -o chromosome.cover 
+    $ dmtools stats -i sample1.methratio.dm -o chromosome.cover --tc 1200559022
+
+`--tc` is the total number of C and G in the genome, we can obtained by 'python count_cg.py genome.fa' in DMtools dir.
+
+.. code:: bash
+
+    $ python count_cg.py hg38.chr.fa
+    #599043897 C, 601515125 G and 1200559022 CG in genome
 
 Please see 'dmtools stats' for more details.
 
