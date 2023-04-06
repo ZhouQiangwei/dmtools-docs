@@ -17,10 +17,10 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'dmtools'
+project = 'DMtools'
 # If specified, this will be used in the nav bar instead.
-html_short_title = "dmtools"
-copyright = '2022, momocoding'
+html_short_title = "DMtools"
+copyright = '2023, momocoding'
 author = 'momocoding'
 
 # The full version, including alpha/beta/rc tags
@@ -35,7 +35,12 @@ release = '0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+'sphinx.ext.mathjax',
+'sphinx.ext.imgmath'
 ]
+
+mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML'
+imgmath_latex = '/Library/TeX/texbin/latex'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -50,9 +55,11 @@ exclude_patterns = []
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
+# select the theme
+html_theme = 'sphinx_rtd_theme'
+#html_theme = 'sphinx_typo3_theme'
 #html_theme = 'alabaster'
-html_theme = 'piccolo_theme'
+#html_theme = 'piccolo_theme'
 #import sphinx_book_theme
 #html_theme = 'sphinx_book_theme'
 #html_theme_path = [sphinx_book_theme.get_html_theme_path()]
