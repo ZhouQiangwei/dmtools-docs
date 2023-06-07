@@ -11,4 +11,4 @@ For python analyses, user can use the ``Python API``.
 .. toctree::
     :maxdepth: 2
     
-    Install <function/DiffMeth>
+    DiffMeth <function/DiffMeth>
