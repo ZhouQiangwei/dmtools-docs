@@ -17,6 +17,7 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -118,12 +119,12 @@ only cytosines with coverage greater than the preset threshold are used.
 The DNA methylation level in a genomic region is defined as the total number of sequenced Cs over the
 total number of sequenced Cs and Ts at all cytosine positions across the region,
 and the equation is as follows:</p>
-<div class="math">
-<p><img src="../_images/math/5df321b8f1e45c7229dcb040c5c7a54e1ddf7be6.png" alt="ML(x)_{method} = \begin{cases}
+<div class="math notranslate nohighlight">
+\[\begin{split}ML(x)_{method} = \begin{cases}
 \dfrac{\sum_{i=1}^{N} C}{\sum_{i=1}^{N} (C + T)}, &amp; \text{if method = weighted} \\
 \dfrac{\sum_{i=1}^{N} ML(x_{i})}{N}, &amp; \text{if method = mean} \\
-\end{cases}"/></p>
-</div><p>where N is the total number of cytosine sites whose coverage is more than the predefined threshold in the genomic region.</p>
+\end{cases}\end{split}\]</div>
+<p>where N is the total number of cytosine sites whose coverage is more than the predefined threshold in the genomic region.</p>
 <p>Calculate DNA methylation level across chromosome</p>
 </section>
 <section id="usage">

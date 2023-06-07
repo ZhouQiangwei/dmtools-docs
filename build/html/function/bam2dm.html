@@ -17,6 +17,7 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -113,10 +114,10 @@ the minus strand.
 Those cytosines, which are used for further statistical analysis,
 should meet the criterion that their depth (C plus T) should be more than some predefined
 threshold (by default, 5) to reduce the influence of sequencing errors in the cytosine site.</p>
-<p>We calculate the methylation level of postion <img class="math" src="../_images/math/5aa339d4daf45a810dda332e3c80a0698e526e04.png" alt="i"/> (<img class="math" src="../_images/math/59ab811af3258655a8616339386e1419c632b592.png" alt="ML(i)"/>) by the following equation:</p>
-<div class="math">
-<p><img src="../_images/math/e4003620d01a52535637b0a9e7509039bb142a20.png" alt="ML(i) = \dfrac{C_{i}}{C_{i} + T_{i}}"/></p>
-</div></section>
+<p>We calculate the methylation level of postion <span class="math notranslate nohighlight">\(i\)</span> (<span class="math notranslate nohighlight">\(ML(i)\)</span>) by the following equation:</p>
+<div class="math notranslate nohighlight">
+\[ML(i) = \dfrac{C_{i}}{C_{i} + T_{i}}\]</div>
+</section>
 <section id="usage">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">Usage</a><a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>An example usage is:

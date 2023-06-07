@@ -35,8 +35,8 @@ release = '0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-'sphinx.ext.mathjax',
-'sphinx.ext.imgmath'
+'sphinx.ext.mathjax'
+#'sphinx.ext.imgmath'
 ]
 
 mathjax_path = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML'
