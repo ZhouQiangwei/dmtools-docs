@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DMtools main modules &mdash; DMtools 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DMtools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">methylation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Getting started with dmtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dmtools.html">dmtools: command line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dmplot.html">dmplot: plotting from the command line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DiffMeth.html">dmdiff: differential dna methylation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pydmtools.html">Python API: pydmtools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DMtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DMtools main modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/function/dmtools.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dmtools-main-modules">
+<h1>DMtools main modules<a class="headerlink" href="#dmtools-main-modules" title="Permalink to this heading"></a></h1>
+<p>You can view and process dm file with dmtools:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ dmtools
+</pre></div>
+</div>
+<p>obtained main modules in DMtools</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>dmtools &lt;mode&gt; [opnions]</p></td>
+<td><p>Usage</p></td>
+</tr>
+<tr class="row-even"><td><p>[mode]</p></td>
+<td><p>bam2dm mr2dm view ebsrate overlap regionstats bodystats profile etc.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Methylation Calculate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>bam2dm</p></td>
+<td><p>calculate DNA methylation (DM format) with BAM file</p></td>
+<td><p><a class="reference internal" href="bam2dm.html"><span class="doc">bam2dm</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Format conversion</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mr2dm</p></td>
+<td><p>convert txt meth file to dm format</p></td>
+<td><p><a class="reference internal" href="mr2dm.html"><span class="doc">dmtools mr2dm</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>view</p></td>
+<td><p>dm format to txt meth</p></td>
+<td><p><a class="reference internal" href="view.html"><span class="doc">dmtools view</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Estimate bs conversion rate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ebsrate</p></td>
+<td><p>estimate bisulfite conversion rate</p></td>
+<td><p><a class="reference internal" href="ebsrate.html"><span class="doc">dmtools ebsrate</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>DM format</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>viewheader</p></td>
+<td><p>view header of dm file</p></td>
+<td><p><a class="reference internal" href="viewheader.html"><span class="doc">dmtools viewheader</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Methylation analyses</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>overlap</p></td>
+<td><p>overlap cytosine site with more than two dm files</p></td>
+<td><p><a class="reference internal" href="overlap.html"><span class="doc">dmtools overlap</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>merge</p></td>
+<td><p>merge more than 1 dm files to one dm file</p></td>
+<td><p><a class="reference internal" href="merge.html"><span class="doc">dmtools merge</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>regionstats</p></td>
+<td><p>calculate DNA methylation level of per region</p></td>
+<td><p><a class="reference internal" href="regionstats.html"><span class="doc">dmtools regionstats</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>bodystats</p></td>
+<td><p>calculate DNA methylation level of body, upstream and downstream.</p></td>
+<td><p><a class="reference internal" href="bodystats.html"><span class="doc">dmtools bodystats</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>profile</p></td>
+<td><p>calculate DNA methylation profile</p></td>
+<td><p><a class="reference internal" href="profile.html"><span class="doc">dmtools profile</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>chromstats</p></td>
+<td><p>calculate DNA methylation level across chromosome</p></td>
+<td><p><a class="reference internal" href="chromstats.html"><span class="doc">dmtools chromstats</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>chrmeth</p></td>
+<td><p>calculate DNA methylation level of chromosomes</p></td>
+<td><p><a class="reference internal" href="chrmeth.html"><span class="doc">dmtools chrmeth</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>addzm</p></td>
+<td><p>add or change zoom levels for dm format, need for browser visulization</p></td>
+<td><p><a class="reference internal" href="addzm.html"><span class="doc">dmtools addzm</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>stats</p></td>
+<td><p>coverage and methylation level distribution of data</p></td>
+<td><p><a class="reference internal" href="stats.html"><span class="doc">dmtools stats</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>dmDMR</p></td>
+<td><p>differential DNA methylation analysis</p></td>
+<td><p><a class="reference internal" href="DiffMeth.html"><span class="doc">Differential analysis</span></a></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For feature requests or bug reports please open an issue <a class="reference external" href="http://github.com/ZhouQiangwei/dmtools">on github</a>.</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, momocoding.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
