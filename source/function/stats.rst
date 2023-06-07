@@ -22,13 +22,17 @@ The DMtools ``stats`` command can calculate the number and proportion of cytosin
 Usage
 ^^^^^
 
-Calculate DNA methylation data coverage and DNA methylation level category:
+Calculate DNA methylation data coverage and DNA methylation level category
+------------------
 
 .. code:: bash
 
     $ dmtools stats -i sample1.methratio.dm -o chromosome.cover --tc 1200559022
 
 `--tc` is the total number of C and G in the genome, we can obtained by 'python count_cg.py genome.fa' in DMtools dir.
+
+Count number of GC of genome
+------------
 
 .. code:: bash
 

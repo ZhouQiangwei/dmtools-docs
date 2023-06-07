@@ -1,5 +1,5 @@
-DiffMeth
-========
+Differential analysis
+=============
 
 .. contents:: 
     :local:
@@ -41,13 +41,17 @@ You can get dmc and dmr result with:
 Usage
 ^^^^^
 
+DMC and DMR detect
+------------------
+
 .. code:: bash
 
-    $ dmDMR -p mutant.output.dm \
+    $ dmtools dmDMR -p mutant.output.dm \
     -1 mutant.methratio.dm -2 WT.methratio.dm \
     --methdiff 0.2 --minstep 100 --mindmc 5 --pval 0.01
     
-obtained hyper、hypo dmc/dmr from dmc/dmr results
+Obtained hyper、hypo dmc/dmr from dmc/dmr results
+--------------------
 
 .. code:: bash
 

@@ -26,12 +26,16 @@ Usage
 
 Calculate DNA methylation profile matrix and average matrix across gene body, upstream and downstream:
 
+With gtf/gff file
+---------------
+
 .. code:: bash
 
     $ dmtools profile -i sample1.methratio.dm --gtf gene.gtf -o gene.profile \
       --regionextend 2000 --bodyX 1 --matrixX 5 --profilemode 0
 
-Or with bed file:
+Or with bed file
+---------------
 
 .. code:: bash
 

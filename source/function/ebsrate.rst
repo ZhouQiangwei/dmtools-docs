@@ -16,6 +16,9 @@ You can estimate the bisulfite conversion rate with dmtools:
 Usage
 ^^^^^
 
+CHH mode
+-------
+
 .. code:: bash
 
     $ dmtools ebsrate -i mutant.methratio.dm --bsmode chh
@@ -34,7 +37,12 @@ Usage
       #CHH	.	0.004733
       ###estimated bs rate by CHH level in all chromosome
       #bsrate   0.004733
-    
+
+chrM mode
+---------
+
+.. code:: bash
+
     $ dmtools ebsrate -i GSM1329865.zm0.dm --bsmode chrM
       #dm bs-c-rate
       ###bs rate calculated by chrM
@@ -50,6 +58,11 @@ Usage
       #chrM	0	16569	0.003873	CHH	-
       ###estimated bs rate by chrM level
       #bsrate   0.004694
+
+lambda DNA mode
+-------------
+
+.. code:: bash
 
     $ dmtools ebsrate -i GSM1329865.zm0.dm --bsmode lambda
       ###estimated bs rate by lambda level

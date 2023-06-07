@@ -1,5 +1,5 @@
-dmtools overlap
-===============
+dmtools merge
+==============
 
 .. contents:: 
     :local:
@@ -11,41 +11,60 @@ The merging of methylation results from multiple samples at the single-base reso
 
 Usually, samples have different coverage, and some of them may even have insufficient sequence coverage at certain sites. Therefore, merging different samples is a complex task. DMtools supports the merging of DNA methylation results of one or multiple samples based on individual base pairs, which provides convenience for downstream analysis.
 
-Overlap cytosine site with more than two dm files:
+Merge cytosine site with more than two dm files:
 
 Usage and output
 ^^^^^^^^
 
-.. code:: bash
-
-    $ dmtools overlap -i sample1.methratio.dm -i2 sample2.methratio.dm
-      ## chromsome pos context strand methy-sample1 coverage-sample1 methy-sample2 coverage-sample2
-      #chr1	13079	CG	+	2	6	3	9
-      #chr1	13082	CHG	+	0	7	0	9
-      #chr1	13086	CHG	+	1	6	0	9
-      #chr1	13092	CHG	+	0	6	0	8
-      #chr1	13124	CHH	+	0	8	0	9
-
-Or just with --dmfiles:
+merge two dm files
+---------------
 
 .. code:: bash
 
-    $ dmtools overlap --dmfiles sample1.methratio.dm,sample2.methratio.dm -r chr1:100-19000
-    #chr1	13058	CHH	+	0	5	0	7
-    #chr1	13059	CHG	+	0	5	0	7
+    $ dmtools merge -i sample1.methratio.dm,sample2.methratio.dm
+      ### sample1
+      #chr1	13079	CG	+	2	6
+      #chr1	13082	CHG	+	0	7
+      #chr1	13086	CHG	+	1	6
+      #chr1	13092	CHG	+	0	6
+      ### sample2
+      #chr1	13079	CG	+	3	9
+      #chr1	13082	CHG	+	0	9
+      #chr1	13086	CHG	+	0	9
+      #chr1	13124	CHH	+	0	8
+
+      ### out file
+      #chr1	13079	CG	+	5	15
+      #chr1	13082	CHG	+	0	16
+      #chr1	13086	CHG	+	1	15
+      #chr1	13092	CHG	+	0	6
+      #chr1	13124	CHH	+	0	8
+
+Or with two or more DM files
+---------------
+
+.. code:: bash
+
+    $ dmtools overlap -i sample1.methratio.dm,sample2.methratio.dm,sample3.methratio.dm --method weighted
+    #chr1	13058	CHH	+	0	5
+    #chr1	13059	CHG	+	0	5
 
 Parameters
 ^^^^^^
 
 ``-i`` input DM file
 
-``-i2`` input DM file2
+``-o`` output file
 
-``-r`` region for view, can be seperated by space. chr1:1-2900 chr2:1-200
+``--method`` method for merge overlap sites, weighted/ mean, [weighted]
 
-``--bed`` bed file for view, format: chrom start end [strand].
+``--mincover`` >= minumum coverage show, default: 0
 
-``--dmfiles`` input DM files, seperated by comma. This is no need if you provide -i and -i2.
+``--maxcover`` <= maximum coverage show, default: 10000
+
+``--outformat`` txt or dm format [txt]
+
+``--zl`` The maximum number of zoom levels. [0-10], valid for dm out
 
 ``-h|--help``
 

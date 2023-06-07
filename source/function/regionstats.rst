@@ -39,6 +39,9 @@ Calculate DNA methylation level of chromosome region, genes, or TEs:
 Usage and output
 ^^^^^^^^^^^^^^^
 
+with gtf/gff file
+-----------------
+
 .. code:: bash
 
     $ dmtools regionstats -i sample1.methratio.dm --gtf gene.gtf -o gene.meth.txt --printcoverage 1
@@ -47,7 +50,8 @@ Usage and output
       #Chr1	4396348	-	12	1552	AT1G12920
       #Chr1	4398375	-	114	3381	AT1G12930
 
-or only print methylation level without coverage:
+only print methylation level without coverage
+----------------------------------
 
 .. code:: bash
 
@@ -58,13 +62,15 @@ or only print methylation level without coverage:
       #Chr1	1624955	+	0.048446	AT1G05500
       #Chr1	1624955	+	0.213080	AT1G05500
 
-Or with bed file:
+Or with bed file
+----------------
 
 .. code:: bash
 
     $ dmtools regionstats -i sample1.methratio.dm --bed gene.bed -o gene.meth.txt
 
-Or just calculate DNA methylation level of same regions:
+Or just calculate DNA methylation level of provide regions:
+--------------------
 
 .. code:: bash
 

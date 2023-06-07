@@ -7,14 +7,15 @@ dmtools overlap
 Description
 ^^^^^^^^^^^
 
-The merging of methylation results from multiple samples at the single-base resolution is crucial for downstream analysis and interpretation of DNA methylation patterns. It enables the identification of methylation differences between groups and provides a comprehensive view of the DNA methylation landscape across different samples. Moreover, it increases the statistical power of the analysis and facilitates the discovery of biologically significant changes in methylation patterns. Overall, merging methylation results from multiple samples is a critical step in epigenetic research that can uncover valuable insights into the role of DNA methylation in other analysis.
-
-Usually, samples have different coverage, and some of them may even have insufficient sequence coverage at certain sites. Therefore, merging different samples is a complex task. DMtools supports the merging of DNA methylation results of one or multiple samples based on individual base pairs, which provides convenience for downstream analysis.
+The significance of calculating the overlap of DNA methylation sites across multiple methylome samples lies in identifying common methylation sites that may be associated with specific biological processes or diseases. By comparing methylation sites among different samples, researchers can determine which sites are methylated in multiple samples, thereby identifying potential regulatory regions and signaling pathways. Additionally, this analysis can help to determine DNA methylation patterns among different samples, further elucidating their relationships and relevance to specific diseases or biological processes. Therefore, calculating the overlap of DNA methylation sites across multiple methylome samples is of great significance in understanding the function and mechanisms of DNA methylation in biology and medicine.
 
 Overlap cytosine site with more than two dm files:
 
 Usage and output
 ^^^^^^^^
+
+overlap with two dm files
+---------------
 
 .. code:: bash
 
@@ -26,7 +27,8 @@ Usage and output
       #chr1	13092	CHG	+	0	6	0	8
       #chr1	13124	CHH	+	0	8	0	9
 
-Or just with --dmfiles:
+Or with --dmfiles for two or more DM files
+---------------
 
 .. code:: bash
 

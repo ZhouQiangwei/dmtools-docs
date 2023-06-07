@@ -36,17 +36,22 @@ Calculate DNA methylation level of gene body, upstream and downstream:
 Usage and output
 ^^^^^^^^^^^^^^^
 
+With gff/gtf file
+-------------
+
 .. code:: bash
 
     $ dmtools bodystats -i sample1.methratio.dm --gtf gene.gtf -o gene.meth.txt
 
-Or with bed file:
+Or with bed file
+--------------
 
 .. code:: bash
 
     $ dmtools bodystats -i sample1.methratio.dm --bed gene.bed -o gene.meth.txt
 
-Or just calculate DNA methylation level of same regions:
+Or just calculate DNA methylation level of provide regions
+-------------------------------
 
 .. code:: bash
 

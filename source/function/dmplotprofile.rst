@@ -13,7 +13,13 @@ The input DNA methylation level matrix is produced by :doc:`profile` command.
 Usage and example
 ^^^^^^^^^
 
-The *.profile.tss.aver *.profile.acorss.aver and *.profile.center.aver are calulated by :doc:`dmtools`.
+Needed matrix files
+---------------
+
+The *.profile.tss.aver *.profile.acorss.aver and *.profile.center.aver are calulated by :doc:`profile`.
+
+Profile across TSS
+-------------
 
 .. code:: bash
 
@@ -35,6 +41,9 @@ The *.profile.tss.aver *.profile.acorss.aver and *.profile.center.aver are calul
    :alt: profile
    :align: center
 
+Profile across gene/region center
+-------------
+
 .. code:: bash
 
     $ dmtools profile -i sample1.methratio.dm --bed active.bed -o active.profile \
@@ -50,6 +59,9 @@ The *.profile.tss.aver *.profile.acorss.aver and *.profile.center.aver are calul
         -s 1 1 -xl up2k center down2k
 
 .. image:: ../media/profile-center.png
+
+Profile across Gene
+-------------
 
 .. code:: bash
 

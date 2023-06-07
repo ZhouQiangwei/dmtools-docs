@@ -150,6 +150,6 @@ A file can be closed with a simple 'dm.close()', as is commonly done with other 
 
 **A note on coordinates and library using**
 
-DM files use 1-based coordinates. And pydmtools and dmtools are based on libbigwig and pyBigWig
+DM files use 1-based coordinates. And pydmtools are based on libbigwig and pyBigWig
 
 .. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/pydmtools>`__.

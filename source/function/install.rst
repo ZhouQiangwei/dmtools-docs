@@ -15,7 +15,7 @@ Requirements
 
 The details of requirements can see :doc:`Requirements`
 
-DMtools
+DMtools install
 -------
 .. code:: bash
 

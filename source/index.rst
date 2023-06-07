@@ -56,9 +56,9 @@ that fulfills the following criteria:
 Citation
 ^^^^^^^^
 
-Please cite dmtools as follows:
+Please cite DMtools as follows:
 
-Zhou Q, Chou C, Li G: The Basic DNA Methylation (DM) format and dmtools
+Zhou Q, Zhou C, Zhu Z, Li G: The Basic DNA Methylation (DM) format and DMtools
 
 
 

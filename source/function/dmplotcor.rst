@@ -35,6 +35,8 @@ Usage
 DMtools provides two visualization options, heatmap and scatterplot, to calculate 
 the correlation between DNA methylation data using two methods: Spearman and Pearson.
 
+heatmap for correlation visulization
+----------------------
 
 .. code:: bash
 
@@ -53,6 +55,7 @@ the correlation between DNA methylation data using two methods: Spearman and Pea
    :align: center
 
 scatterplot for correlation visulization
+------------------
 
 .. code:: bash
 
