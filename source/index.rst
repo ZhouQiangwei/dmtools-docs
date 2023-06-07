@@ -37,8 +37,8 @@ Contents
    Getting started with dmtools <install>
    dmtools: command line tools <dmtools>
    dmplot: plotting from the command line <dmplot>
-   dmdiff: differential dna methylation <dmdiff>
-   Requirements <requirements>
+   dmdiff: differential dna methylation <function/DiffMeth>
+   Requirements <function/Requirements>
    Python API: pydmtools <pydmtools>
 
 

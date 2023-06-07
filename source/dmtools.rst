@@ -16,4 +16,9 @@ The Basic DNA methylation (DM) format is a compressed binary indexed DNA methyla
 .. toctree::
     :maxdepth: 2
     
-    DMtools <function/dmtools>
+    Calculate DNA meth from bam <function/bam2dm>
+    Format convertion <function/dmtools-format>
+    Estimate bs conversion rate <function/ebsrate>
+    Calculate DNA meth with dm <function/dmtools-calme>
+    Merge or overlap dm files <function/dmtools-merge>
+    Manipulate dm format <function/dmtools-manu>
