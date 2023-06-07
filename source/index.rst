@@ -34,12 +34,12 @@ Contents
    :maxdepth: 3
    :caption: methylation
 
-   Getting started with dmtools <install>
+   Getting started with dmtools <function/install>
    dmtools: command line tools <dmtools>
    dmplot: plotting from the command line <dmplot>
    dmdiff: differential dna methylation <function/DiffMeth>
    Requirements <function/Requirements>
-   Python API: pydmtools <pydmtools>
+   Python API: pydmtools <function/pydmtools>
 
 
 While developing dmtools, we continuously strive to create software
