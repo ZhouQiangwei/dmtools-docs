@@ -5,7 +5,7 @@ dmPlotProfile
     :local:
 
 Description
-^^^^^^^^^^
+^^^^^^^^^^^
 
 Plot DNA methlation profile across gene/ TE/ predefined bed region, such as peak or dmr region.
 The input DNA methylation level matrix is produced by :doc:`profile` command.

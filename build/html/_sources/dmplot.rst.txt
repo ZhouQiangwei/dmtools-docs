@@ -14,7 +14,7 @@ For python analyses, user can use the ``Python API``.
 .. toctree::
     :maxdepth: 2
     
-    Install <function/dmplotbasic>
-    Install <function/dmplotcor>
-    Install <function/dmplotheatmap>
-    Install <function/dmplotprofile>
+    dmplotbasic <function/dmplotbasic>
+    dmplotcor <function/dmplotcor>
+    dmplotheatmap <function/dmplotheatmap>
+    dmplotprofile <function/dmplotprofile>

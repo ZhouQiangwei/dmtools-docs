@@ -1,11 +1,8 @@
-DMtools
+DMtools main modules
 =======
 
 .. contents:: 
     :local:
-
-dmtools main modules
-^^^^^^^^^^^^^^^^^^^^
 
 You can view and process dm file with dmtools:
 
@@ -15,9 +12,6 @@ You can view and process dm file with dmtools:
     
 obtained main modules in DMtools
 
-
-Main functions
-^^^^^^^^^^^^^^
 
 +-----------------------------+------------------------------------------------------------------------+--------------------+
 |                             | dmtools <mode> [opnions]                                               | Usage              |
@@ -67,77 +61,23 @@ Main functions
 |                             |                                                                        |                    |
 +-----------------------------+------------------------------------------------------------------------+--------------------+
 
-Methylation Calculate
-^^^^^^^^^^^^^^^^^^^^^
+.. toctree::
+   :maxdepth: 2
 
-:doc:`bam2dm`
-------------
-
-Format conversion
-^^^^^^^^^^^^^^^^^
-
-:doc:`mr2dm`
-------------
-
-:doc:`view`
------------
-
-:doc:`addzm`
-------------
-
-Estimate bs conversion rate
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-:doc:`ebsrate`
---------------
-
-DM format
-^^^^^^^^^
-
-:doc:`viewheader`
------------------
-
-Methylation analyses
-^^^^^^^^^^^^^^^^^^^^
-
-:doc:`stats`
-------------
-
-:doc:`overlap`
---------------
-
-:doc:`merge`
-------------
-
-:doc:`regionstats`
------------------
-
-:doc:`bodystats`
-----------------
-
-:doc:`profile`
---------------
-
-:doc:`chromstats`
-----------------
-
-:doc:`chrmeth`
---------------
-
-Visualization
-^^^^^^^^^^^^^
-
-:doc:`dmplotcor`
-----------------
-
-:doc:`dmplotbasic`
-----------------
-
-:doc:`dmplotprofile`
--------------------
-
-:doc:`dmplotheatmap`
--------------------
+   Calculate methylation from bam <bam2dm>
+   Convert TXT to dm <mr2dm>
+   View dm file <view>
+   Add zoom level of dm file <addzm>
+   Estimate bs conversion rate <ebsrate>
+   View DM file header information <viewheader>
+   Calculate DNA methylation <stats>
+   Overlap dm files <overlap>
+   Merge dm files <merge>
+   Calculate DNA methylation for regions <regionstats>
+   Calculate DNA methylation for gene body <bodystats>
+   Calculate methylation profile across genes <profile>
+   Calculate DNA methylation acorss chromosome <chromstats>
+   Calculate DNA methylation for chromosome <chrmeth>
 
 
 .. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/dmtools>`__.
