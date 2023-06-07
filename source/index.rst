@@ -6,7 +6,7 @@
 The Basic DNA Methylation (DM) format and DMtools
 =================================================
 
-.. image:: ./media/diffmeth.png
+.. image:: ./media/DMtools.png
    :height: 490 px
    :width: 620 px
    :alt: dmtools main functions
