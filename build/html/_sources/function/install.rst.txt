@@ -1,0 +1,40 @@
+Install
+========
+
+The Basic DNA Methylation (DM) format and dmtools
+
+.. contents:: 
+    :local:
+
+Requirements
+-------------
+
+* gcc >= v4.8 
+* :doc:`gsl` required for differential analysis
+* some python library
+
+The details of requirements can see :doc:`Requirements`
+
+DMtools install
+-------
+.. code:: bash
+
+    a) git clone https://github.com/ZhouQiangwei/dmtools.git
+    b) Change directory into the top directory of dmtools
+	$ cd dmtools
+    c) Type 
+	$ make
+    e) The binary of dmtools will be created in ./
+
+python library required for visualization
+------------------------
+
+.. code:: bash
+
+    pip install numpy
+    pip install pandas
+    pip install matplotlib
+    pip install seaborn
+    pip install scipy
+
+.. tip:: For feature requests or bug reports please open an issue `on github <http://github.com/ZhouQiangwei/dmtools>`__.

@@ -6,10 +6,10 @@
 The Basic DNA Methylation (DM) format and DMtools
 =================================================
 
-.. image:: ./media/dmtools.png
+.. image:: media/dmtools.png
    :height: 490 px
    :width: 620 px
-   :alt: dmtools main functions
+   :alt: coverage
    :align: center
 
 The Basic DNA methylation (DM) format is a compressed binary indexed DNA methylation format for storing DNA methylation levels with methylation context, strand, coverage, and ID information. Compared with the commonly used file formats for DNA methylation, the storage space of the DM format is reduced by 80%-90%. Besides, based on the DM format file, users can realize fast random access and calculate DNA methylation levels of any chromosome region. Correspondingly, we provided dmtools, a manipulation tool in DM format. The dmtools implements various utilities for post-processing DNA methylation levels with DM format, such as fast and random access, calculation of DNA methylation profile across genes, and differential DNA methylation analysis. Moreover, we also provided a python package pydmtools for processing DM format files.

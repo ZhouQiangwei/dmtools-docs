@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dmPlotProfile &mdash; DMtools 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting started" href="../dmdiff.html" />
+    <link rel="prev" title="dmPlotHeatmap" href="dmplotheatmap.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DMtools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">methylation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Getting started with dmtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dmtools.html">dmtools: command line tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../dmplot.html">dmplot: plotting from the command line</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../dmplot.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="dmplotbasic.html">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dmplotcor.html">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dmplotheatmap.html">Install</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Install</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage-and-example">Usage and example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dmdiff.html">dmdiff: differential dna methylation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pydmtools.html">Python API: pydmtools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DMtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../dmplot.html">Getting started</a></li>
+      <li class="breadcrumb-item active">dmPlotProfile</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/function/dmplotprofile.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dmplotprofile">
+<h1>dmPlotProfile<a class="headerlink" href="#dmplotprofile" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id7">Description</a></p></li>
+<li><p><a class="reference internal" href="#usage-and-example" id="id8">Usage and example</a></p>
+<ul>
+<li><p><a class="reference internal" href="#needed-matrix-files" id="id9">Needed matrix files</a></p></li>
+<li><p><a class="reference internal" href="#profile-across-tss" id="id10">Profile across TSS</a></p></li>
+<li><p><a class="reference internal" href="#profile-across-gene-region-center" id="id11">Profile across gene/region center</a></p></li>
+<li><p><a class="reference internal" href="#profile-across-gene" id="id12">Profile across Gene</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#parameters" id="id13">Parameters</a></p></li>
+</ul>
+</nav>
+<section id="description">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
+<p>Plot DNA methlation profile across gene/ TE/ predefined bed region, such as peak or dmr region.
+The input DNA methylation level matrix is produced by <a class="reference internal" href="profile.html"><span class="doc">dmtools profile</span></a> command.</p>
+</section>
+<section id="usage-and-example">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Usage and example</a><a class="headerlink" href="#usage-and-example" title="Permalink to this heading"></a></h2>
+<section id="needed-matrix-files">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Needed matrix files</a><a class="headerlink" href="#needed-matrix-files" title="Permalink to this heading"></a></h3>
+<p>The <a href="#id1"><span class="problematic" id="id2">*</span></a>.profile.tss.aver <a href="#id3"><span class="problematic" id="id4">*</span></a>.profile.acorss.aver and <a href="#id5"><span class="problematic" id="id6">*</span></a>.profile.center.aver are calulated by <a class="reference internal" href="profile.html"><span class="doc">dmtools profile</span></a>.</p>
+</section>
+<section id="profile-across-tss">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Profile across TSS</a><a class="headerlink" href="#profile-across-tss" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ dmtools profile -i sample1.methratio.dm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile <span class="se">\</span>
+  --regionextend <span class="m">2000</span> --bodyX <span class="m">1</span> --matrixX <span class="m">5</span> --profilemode <span class="m">1</span>
+
+$ dmtools profile -i sample1.methratio.dm --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile <span class="se">\</span>
+  --regionextend <span class="m">2000</span> --bodyX <span class="m">1</span> --matrixX <span class="m">5</span> --profilemode <span class="m">1</span>
+
+$ dmPlotProfile.py -f H3K4me3.bdgene.profile.tss.aver <span class="se">\</span>
+    H3K4me3.unbdgene.profile.tss.aver <span class="se">\</span>
+    -l H3K4me3.bdgene H3K4me3.unbdgene <span class="se">\</span>
+    --outFileName H3K4me3.output.meth.pdf <span class="se">\</span>
+    -s <span class="m">1</span> <span class="m">1</span> -xl up2k TSS down2k --context C
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/profile-tss.png"><img alt="profile" class="align-center" src="../_images/profile-tss.png" style="width: 400px; height: 300px;" /></a>
+</section>
+<section id="profile-across-gene-region-center">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Profile across gene/region center</a><a class="headerlink" href="#profile-across-gene-region-center" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ dmtools profile -i sample1.methratio.dm --bed active.bed -o active.profile <span class="se">\</span>
+  --regionextend <span class="m">2000</span> --bodyX <span class="m">1</span> --matrixX <span class="m">5</span> --profilemode <span class="m">3</span>
+
+$ dmtools profile -i sample1.methratio.dm --bed random.bed -o random.profile <span class="se">\</span>
+  --regionextend <span class="m">2000</span> --bodyX <span class="m">1</span> --matrixX <span class="m">5</span> --profilemode <span class="m">3</span>
+
+$ dmPlotProfile.py -f active.profile.center.aver <span class="se">\</span>
+    random.profile.center.aver <span class="se">\</span>
+    -l active random <span class="se">\</span>
+    --outFileName active_random.output.meth.pdf <span class="se">\</span>
+    -s <span class="m">1</span> <span class="m">1</span> -xl up2k center down2k
+</pre></div>
+</div>
+<img alt="../_images/profile-center.png" src="../_images/profile-center.png" />
+</section>
+<section id="profile-across-gene">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Profile across Gene</a><a class="headerlink" href="#profile-across-gene" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ dmtools profile -i sample1.methratio.dm --bed H3K4me3.bdgene.bed -o H3K4me3.bdgene.profile <span class="se">\</span>
+  --regionextend <span class="m">2000</span> --bodyX <span class="m">1</span> --matrixX <span class="m">5</span> --profilemode <span class="m">0</span>
+
+$ dmtools profile -i sample1.methratio.dm --bed H3K4me3.unbdgene.bed -o H3K4me3.unbdgene.profile <span class="se">\</span>
+  --regionextend <span class="m">2000</span> --bodyX <span class="m">1</span> --matrixX <span class="m">5</span> --profilemode <span class="m">0</span>
+
+$ dmPlotProfile.py -f H3K27me3.bdgene.profile.avarage.across.aver <span class="se">\</span>
+    H3K27me3.unbdgene.profile.across.aver <span class="se">\</span>
+    -l H3K27me3.bdgene H3K27me3.unbdgene <span class="se">\</span>
+    --outFileName H3K27me3.output.meth.pdf <span class="se">\</span>
+    -s <span class="m">1</span> <span class="m">1</span> <span class="m">1</span> -xl up2k TSS TES down2k
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/profile-body.png"><img alt="profile" class="align-center" src="../_images/profile-body.png" style="width: 400px; height: 300px;" /></a>
+</section>
+</section>
+<section id="parameters">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">MRFILE</span> <span class="pre">[MRFILE</span> <span class="pre">...],</span> <span class="pre">--mrfile</span> <span class="pre">MRFILE</span> <span class="pre">[MRFILE</span> <span class="pre">...]</span></code></dt><dd><p>DNA AverMethylevel files, seperate by space. eg. wildtype.AverMethy.txt</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">LABEL</span> <span class="pre">[LABEL</span> <span class="pre">...],</span> <span class="pre">--label</span> <span class="pre">LABEL</span> <span class="pre">[LABEL</span> <span class="pre">...]</span></code></dt><dd><p>Labels of samples, sperate by space. eg. -l widetype</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--outFileName</span> <span class="pre">FILENAME,</span> <span class="pre">-o</span> <span class="pre">FILENAME</span></code></dt><dd><p>Output file name.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--sample</span> <span class="pre">SAMPLE</span> <span class="pre">[SAMPLE</span> <span class="pre">...]</span></code></dt><dd><p>The interval of N data is a group, and the average value is taken as the representative. Please note that the number of labels
+should correspondto the number of samples after averaging.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">SCALE</span> <span class="pre">[SCALE</span> <span class="pre">...],</span> <span class="pre">--scale</span> <span class="pre">SCALE</span> <span class="pre">[SCALE</span> <span class="pre">...]</span></code></dt><dd><p>Visual X-axis spacing, default upsteam:body:downstream is 1:1:1 (-s 1 1 1), which should be consistent with -b and -bl parameters
+in BatMeth2:methyGff,and separated by spaces</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-xl</span> <span class="pre">XLABEL</span> <span class="pre">[XLABEL</span> <span class="pre">...],</span> <span class="pre">--xlabel</span> <span class="pre">XLABEL</span> <span class="pre">[XLABEL</span> <span class="pre">...]</span></code></dt><dd><p>Consistent with the -s parameter, if the -s parameter is 1 1 1, i.e. 1:1:1,then the corresponding X-axis label is UP TSS TES Down</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-yl</span> <span class="pre">YLABEL,</span> <span class="pre">--ylabel</span> <span class="pre">YLABEL</span></code></dt><dd><p>y-axis label</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">TITLE</span> <span class="pre">[TITLE</span> <span class="pre">...],</span> <span class="pre">--title</span> <span class="pre">TITLE</span> <span class="pre">[TITLE</span> <span class="pre">...]</span></code></dt><dd><p>Title of the plot, to be printed on top of the generated image. Leave blank for no title.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--yMin</span> <span class="pre">YMIN</span> <span class="pre">[YMIN</span> <span class="pre">...]</span></code></dt><dd><p>Minimum value for the Y-axis. Multiple values, separated by spaces can be set for each profile. If the number of yMin values is
+smaller thanthe number of plots, the values are recycled.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--yMax</span> <span class="pre">YMAX</span> <span class="pre">[YMAX</span> <span class="pre">...]</span></code></dt><dd><p>Maximum value for the Y-axis. Multiple values, separated by spaces can be set for each profile. If the number of yMin values is
+smaller thanthe number of plots, the values are recycled.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--color</span> <span class="pre">COLOR</span> <span class="pre">[COLOR</span> <span class="pre">...]</span></code></dt><dd><p>List of colors to use, should same as the number of samples,Color names and html hex strings (e.g., #eeff22) are accepted. The
+color names should be space separated. For example, --color red blue green</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--legend</span> <span class="pre">{0,1,2,3,4,5,6,7,8,9,10,11,12}</span></code></dt><dd><p>The location of the legend. best : 0, upper right : 1, upper left : 2, lower left : 3, lower right : 4, right : 5, center left :
+6, center right: 7, lower center: 8, upper center: 9, center : 10, out : 11, none : 12</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--lastlegend</span> <span class="pre">LASTLEGEND</span></code></dt><dd><p>Only show the last figure's legend.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--legendsize</span> <span class="pre">LEGENDSIZE</span></code></dt><dd><p>the text size of the legend.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--context</span> <span class="pre">CONTEXT</span></code></dt><dd><dl class="simple">
+<dt>List of colors to use, should same as the number of samples,Color names and html hex strings (e.g., #eeff22) are accepted. The</dt><dd><p>color names should be space separated. For example, --color red blue green</p>
+</dd>
+</dl>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--pergroup</span> <span class="pre">PERGROUP</span></code></dt><dd><p>plot cg/ch of the same sample in one fig,only useful when have more than 1 sample input file</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-ft</span> <span class="pre">IMAGE_FORMAT,</span> <span class="pre">--image_format</span> <span class="pre">IMAGE_FORMAT</span></code></dt><dd><p>The file format, e.g. 'png', 'pdf', 'svg', ... The behavior when this is unset is documented under fname.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--dpi</span> <span class="pre">DPI</span></code></dt><dd><p>Set the DPI to save the figure. default: 200</p>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For feature requests or bug reports please open an issue <a class="reference external" href="http://github.com/ZhouQiangwei/dmtools">on github</a>.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dmplotheatmap.html" class="btn btn-neutral float-left" title="dmPlotHeatmap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../dmdiff.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, momocoding.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
