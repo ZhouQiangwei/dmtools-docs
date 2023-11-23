@@ -2,4 +2,5 @@ piccolo-theme
 sphinx_rtd_theme
 tex
 latex
+recommonmark
 #PyDvi
