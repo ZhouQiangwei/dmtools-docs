@@ -78,7 +78,7 @@
              
   <section id="the-basic-dna-methylation-dm-format-and-dmtools">
 <h1>The Basic DNA Methylation (DM) format and DMtools<a class="headerlink" href="#the-basic-dna-methylation-dm-format-and-dmtools" title="Permalink to this heading"></a></h1>
-<a class="reference internal image-reference" href="_images/DMtools.png"><img alt="dmtools main functions" class="align-center" src="_images/DMtools.png" style="width: 620px; height: 490px;" /></a>
+<a class="reference internal image-reference" href="_images/DMtools.png"><img alt="dmtools main functions" class="align-center" src="_images/DMtools.png" style="width: 620px; height: 520px;" /></a>
 <p>The Basic DNA methylation (DM) format is a compressed binary indexed DNA methylation format for storing DNA methylation levels with methylation context, strand, coverage, and ID information. Compared with the commonly used file formats for DNA methylation, the storage space of the DM format is reduced by 80%-90%. Besides, based on the DM format file, users can realize fast random access and calculate DNA methylation levels of any chromosome region. Correspondingly, we provided dmtools, a manipulation tool in DM format. The dmtools implements various utilities for post-processing DNA methylation levels with DM format, such as fast and random access, calculation of DNA methylation profile across genes, and differential DNA methylation analysis. Moreover, we also provided a python package pydmtools for processing DM format files.</p>
 <p><strong>Installation</strong></p>
 <ul class="simple">
@@ -110,6 +110,11 @@
 <li class="toctree-l3"><a class="reference internal" href="function/bam2dm.html#paramaters">Paramaters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="function/bam2dm.html#output-files">Output files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="function/bam2dm.html#output-file-format">Output file format</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="function/dmtools-format.html">Format convertion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function/mr2dm.html">Convert TXT to dm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function/view.html">View dm file</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="function/ebsrate.html">Estimate bs conversion rate</a><ul>
