@@ -58,12 +58,12 @@ For example, in this test sample, the number of sites with DNA methylation cover
 
 `chromosome.cover.stats`
 
-For example, in this test sample, the number of sites with DNA methylation levels between [0-0.1) is 760990560.
+For example, in this test sample, the number of sites with DNA methylation levels equal to 0 is 700990500, and between (0-0.1] is 60990560, between (0.1-0.2] is 19059281.
 
 .. code:: bash
 
-    #catary  0       0.10    0.20    0.30    0.40    0.50    0.60    0.70    0.80    0.90
-    #percent 760990560       19059281        4978777 6203698 5038056 2986205 1880708 1318675 561500  233544
+    #catary  0   0.0    0.10    0.20    0.30    0.40    0.50    0.60    0.70    0.80    0.90
+    #percent 700990500   60990560    19059281        4978777 6203698 5038056 2986205 1880708 1318675 561500  233544
 
 Parameters
 ^^^^^^
